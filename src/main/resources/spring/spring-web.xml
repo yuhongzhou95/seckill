@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 配置SpringMVC -->
+    <!-- 扫描controller -->
+    <context:component-scan base-package="com.shadow.controller"/>
+    <!-- 开启Spring注解模式-->
+    <!-- 简化配置：
+        1.自动注册DefaultAnnotationHandlerMapping、AnnotationMethodHandlerAdapter
+        2.提供一系类：数据绑定、数字和日期的format 类似于@NumberFormat,@DataTimeFormat，
+        以及xml、json默认读写支持
+      -->
+    <mvc:annotation-driven/>
+
+    <!-- 处理映射静态资源 -->
+    <!--
+    <mvc:default-servlet-handler/> 将在 SpringMVC 上下文中定义一个DefaultServletHttpRequestHandler，
+    它会对进入 DispatcherServlet 的请求进行筛查，如果发现是没有经过映射的请求，就将该请求交由 WEB 应用服务器默认的 Servlet 处理，
+    如果不是静态资源的请求，才由DispatcherServlet 继续处理。
+    一般 WEB 应用服务器默认的 Servlet 的名称都是 default。
+    若所使用的WEB 服务器的默认 Servlet 名称不是 default，则需要通过 default-servlet-name 属性显式指定
+    -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 配置视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>

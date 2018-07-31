@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!-- 允许 JDBC 支持自动生成主键 -->
+        <setting name="useGeneratedKeys" value="true"/>
+        <!-- 使用列标签代替列名 默认：true
+            select name as title from table;
+        -->
+        <setting name="useColumnLabel" value="true"/>
+        <!-- 是否开启自动驼峰命名规则（camel case）映射 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <!-- 在spring-dao.xml中已经配置 -->
+    <!--<typeAliases>
+        <package name="com.shadow.entity"/>
+    </typeAliases>-->
+</configuration>
