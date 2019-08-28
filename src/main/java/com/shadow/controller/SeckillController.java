@@ -24,6 +24,7 @@ ___:war
 　　发布模式,这是先打成war包,再部署*/
 @Controller
 //@RequestMapping("/seckill")
+// dev分支
 public class SeckillController {
     private static final Logger logger = LoggerFactory.getLogger(SeckillController.class);
 
